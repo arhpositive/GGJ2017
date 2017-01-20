@@ -9,19 +9,24 @@ ModelImporter:
     100002: //RootNode
     100004: President_Body
     100006: President_Head
+    100008: PresidentHair
     400000: Hand
     400002: //RootNode
     400004: President_Body
     400006: President_Head
+    400008: PresidentHair
     2300000: Hand
     2300002: President_Body
     2300004: President_Head
+    2300006: PresidentHair
     3300000: Hand
     3300002: President_Body
     3300004: President_Head
+    3300006: PresidentHair
     4300000: President_Body
     4300002: President_Head
     4300004: Hand
+    4300006: PresidentHair
     7400000: Waving
     9500000: //RootNode
   materials:

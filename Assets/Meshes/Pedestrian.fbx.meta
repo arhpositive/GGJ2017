@@ -8,15 +8,20 @@ ModelImporter:
     100000: //RootNode
     100002: Pedestrian_Body
     100004: Pedestrian_Head
+    100006: PedestrianHair
     400000: //RootNode
     400002: Pedestrian_Body
     400004: Pedestrian_Head
+    400006: PedestrianHair
     2300000: Pedestrian_Body
     2300002: Pedestrian_Head
+    2300004: PedestrianHair
     3300000: Pedestrian_Body
     3300002: Pedestrian_Head
+    3300004: PedestrianHair
     4300000: Pedestrian_Head
     4300002: Pedestrian_Body
+    4300004: PedestrianHair
     9500000: //RootNode
   materials:
     importMaterials: 0
