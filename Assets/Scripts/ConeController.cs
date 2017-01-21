@@ -17,7 +17,7 @@ public class ConeController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		transform.position = prez.transform.position + distanceToPlayer;
+		// transform.position = prez.transform.position + distanceToPlayer;
 		// Vector3 mouse = Input.mousePosition;
 		// mouse.z = 10f - .45f / 2f;
 		// Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mouse);
