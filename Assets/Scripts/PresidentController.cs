@@ -10,9 +10,11 @@ public class PresidentController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-		if (Input.GetMouseButtonUp(0)) {
-			handwave.Stop();
+	void Update () {
+		if (Input.GetMouseButton(0)) {
+			handwave.SetBool("IsWaving", true);
+		} else {
+			handwave.SetBool("IsWaving", false);
 		}
 	}
 }
