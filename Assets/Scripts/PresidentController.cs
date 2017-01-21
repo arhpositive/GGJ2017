@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PresidentController : MonoBehaviour {
 	public int staminaIncreaseRate = 5;
@@ -12,6 +13,7 @@ public class PresidentController : MonoBehaviour {
 	public float staminaFillInterval = 1;
 	public float idleTime = 0;
 	// Use this for initialization
+	public Text staminaText;
 	void Start () {
 		handwave = GetComponent<Animator>();
 	}
@@ -43,6 +45,7 @@ public class PresidentController : MonoBehaviour {
 
 	private void SetStamina (int nextStamina) {
 		stamina = Mathf.Clamp(nextStamina, staminaMin, staminaMax);
+		staminaText.text = "Stamina: " + stamina;
 	}
 	
 	public void IncreaseStamina () {

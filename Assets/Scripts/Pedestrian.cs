@@ -253,6 +253,10 @@ public class Pedestrian : MonoBehaviour
     {
         _isImpressed = true;
 
+        // Increase score
+        CameraScript cameraScript = Camera.main.GetComponent<CameraScript>();
+        cameraScript.IncreaseScore();
+
         //TODO jump jump jump
     }
 

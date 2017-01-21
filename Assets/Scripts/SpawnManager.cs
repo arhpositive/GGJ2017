@@ -9,6 +9,10 @@ public class SpawnManager : MonoBehaviour
     
 	void Start ()
     {
+        // update pedestrian count
+        CameraScript cameraScript = Camera.main.GetComponent<CameraScript>();
+        cameraScript.AddPedestrians(PedestrianSpawnCount);
+        
 		//attached gameobject will spawn new pedestrians within limits, where y = 0 and x,z is determined randomly
 
 	    float randomXLim = transform.localScale.x*0.5f;

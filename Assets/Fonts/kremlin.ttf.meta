@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 88f06994bf6e04b27b32c60117bd3f33
+timeCreated: 1485028037
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Kremlin
+  fontNames:
+  - Kremlin
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
