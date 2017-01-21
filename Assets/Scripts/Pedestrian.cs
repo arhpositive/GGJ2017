@@ -7,6 +7,7 @@ using UnityEngine;
 public class Pedestrian : MonoBehaviour
 {
     public float MinDistanceFromBusPath;
+    public float PositionRelaxCoef;
     public float MinMovementDistance;
     public float MaxMovementDistance;
     public float MinIdleDuration;
@@ -20,6 +21,8 @@ public class Pedestrian : MonoBehaviour
     public float LovePresidentPossibility;
     [Range(1, 5)]
     public int WavesRequiredToImpress; //TODO_ARHAN implement
+    [Range(0, 10000)]
+    public int GiveUpCoef;
 
     private Vector3 _targetPointOnSpline;
     private bool _lovesPresident;
@@ -29,6 +32,7 @@ public class Pedestrian : MonoBehaviour
     private float _nextWanderTime;
     private Vector3 _wanderDirection;
     private Vector3 _nextWanderPos;
+    private Vector3 _posBeforeLoveRun;
     private float _actualSpeed;
     private float _prevDistanceFromTargetPoint;
 
@@ -52,6 +56,7 @@ public class Pedestrian : MonoBehaviour
 	    _actualSpeed = RegularSpeed;
         _nextWanderTime = Time.time;
         _nextWanderPos = Vector3.zero;
+	    _posBeforeLoveRun = Vector3.zero;
         _wanderDirection = Vector3.zero;
         _isImpressed = false;
 
@@ -66,7 +71,7 @@ public class Pedestrian : MonoBehaviour
         _busPathScript = GameObject.FindGameObjectWithTag("BusPath").GetComponent<iTweenPath>();
         _busPath = _busPathScript.nodes.ToArray();
         SetTargetPointOnSpline();
-        print("target: " + _targetPointOnSpline);
+        //print("target: " + _targetPointOnSpline);
     }
 	
 	// Update is called once per frame
@@ -80,13 +85,17 @@ public class Pedestrian : MonoBehaviour
 	    }
         _prevDistanceFromTargetPoint = distanceFromTargetPoint;
 
+
         //TODO check if the bus approaches to target point
         //TODO check if the bus gets far away from target point
         if (!_loveRunTriggered && _lovesPresident && busIsApproaching &&
             _prevDistanceFromTargetPoint < LoveRunTriggerRange)
-	    {
-	        //bus is incoming, change state to love run
-	        _loveRunTriggered = true;
+        {
+            //save previous position
+            _posBeforeLoveRun = transform.position;
+
+            //bus is incoming, change state to love run
+            _loveRunTriggered = true;
             _moveState = MoveState.MsLoveRun;
 	        _actualSpeed = LoveRunSpeed;
 
@@ -95,10 +104,11 @@ public class Pedestrian : MonoBehaviour
             //move towards a little backwards from bus target spline pos
 	        Vector3 posAroundTarget = _targetPointOnSpline + directionFromTargetToPos*MinDistanceFromBusPath;
 
-	        _nextWanderPos = posAroundTarget + new Vector3(Random.Range(-2.0f, 2.0f), 0, Random.Range(-2.0f, 2.0f));
+	        _nextWanderPos = posAroundTarget + new Vector3(Random.Range(-PositionRelaxCoef, PositionRelaxCoef), 
+                0, Random.Range(-PositionRelaxCoef, PositionRelaxCoef));
             _wanderDirection = _nextWanderPos - transform.position;
 
-            print("run to: " + _nextWanderPos);
+            //print("run to: " + _nextWanderPos);
         }
 
         if (_moveState == MoveState.MsIdle)
@@ -130,8 +140,25 @@ public class Pedestrian : MonoBehaviour
             if (transform.position == _nextWanderPos)
             {
                 //TODO watch the bus until it goes away
-                //for now move to idle temporary testing
-                SetToIdle();
+
+                if (!busIsApproaching)
+                {
+                    //bus is going away, now check if it's beyond a certain range
+                    if (distanceFromTargetPoint > LoveRunTriggerRange || Random.Range(1, 100000) < GiveUpCoef)
+                    {
+                        //print("distance: " + distanceFromTargetPoint);
+                        //move back to original position 
+                        _moveState = MoveState.MsWandering;
+
+                        //TODO make sure you're not stepping on spline
+                        _nextWanderPos = _posBeforeLoveRun +
+                                         new Vector3(Random.Range(-PositionRelaxCoef, PositionRelaxCoef), 
+                                         0, Random.Range(-PositionRelaxCoef, PositionRelaxCoef));
+
+                        _wanderDirection = _nextWanderPos - transform.position;
+                        _actualSpeed = RegularSpeed;
+                    }
+                }
             }
         }
     }
@@ -139,7 +166,6 @@ public class Pedestrian : MonoBehaviour
     void SetToIdle()
     {
         _moveState = MoveState.MsIdle;
-        _actualSpeed = RegularSpeed;
         //when you reach it, set new nextWanderTime
         _nextWanderTime = Time.time + Random.Range(MinIdleDuration, MaxIdleDuration);
         //set new target point
