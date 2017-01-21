@@ -19,8 +19,9 @@ public class Pedestrian : MonoBehaviour
 
     [Range(0.0f, 1.0f)]
     public float LovePresidentPossibility;
-    [Range(1, 5)]
-    public int WavesRequiredToImpress; //TODO_ARHAN implement
+    
+    [Range(0.2f, 2.0f)]
+    public float SecondsRequiredToImpress; //TODO_ARHAN implement
     [Range(0, 10000)]
     public int GiveUpCoef;
 
@@ -35,6 +36,8 @@ public class Pedestrian : MonoBehaviour
     private Vector3 _posBeforeLoveRun;
     private float _actualSpeed;
     private float _prevDistanceFromTargetPoint;
+    private float _remainingSecondsToImpress;
+    private Renderer _bodyRenderer;
 
     private GameObject _busMoverGameObject;
 
@@ -60,12 +63,29 @@ public class Pedestrian : MonoBehaviour
         _wanderDirection = Vector3.zero;
         _isImpressed = false;
 
+        Renderer[] childRenderers = gameObject.GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer childRenderer in childRenderers)
+        {
+            if (childRenderer.gameObject.tag == "body")
+            {
+                _bodyRenderer = childRenderer;
+            }
+        }
+
         //she loves me, she loves me not
         _lovesPresident = (Random.Range(0.0f, 1.0f) < LovePresidentPossibility);
         _loveRunTriggered = false;
 
         _busMoverGameObject = GameObject.FindGameObjectWithTag("BusMover");
 	    _prevDistanceFromTargetPoint = float.MaxValue;
+        
+	    _remainingSecondsToImpress = SecondsRequiredToImpress;
+	    if (_lovesPresident)
+	    {
+	        _remainingSecondsToImpress *= .5f;
+            SetBodyColor();
+	    }
 
         //determine target point on spline, first get bus path, then you'll do stuff
         _busPathScript = GameObject.FindGameObjectWithTag("BusPath").GetComponent<iTweenPath>();
@@ -212,5 +232,40 @@ public class Pedestrian : MonoBehaviour
     {
         float distanceFromTargetPoint = Vector3.Distance(_busMoverGameObject.transform.position, _targetPointOnSpline);
         _prevDistanceFromTargetPoint = distanceFromTargetPoint;
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Cone" && !_isImpressed)
+        {
+            _remainingSecondsToImpress -= Time.deltaTime;
+            
+           SetBodyColor();
+
+            if (_remainingSecondsToImpress <= 0.0f)
+            {
+               PedestrianImpressed();
+            }
+        }
+    }
+
+    void PedestrianImpressed()
+    {
+        _isImpressed = true;
+
+        //TODO jump jump jump
+    }
+
+    void SetBodyColor()
+    {
+        float remainingPercentage = _remainingSecondsToImpress / SecondsRequiredToImpress;
+        Color newMatColor = new Color(1 - remainingPercentage, 0, remainingPercentage);
+
+        if (remainingPercentage <= 0.0f)
+        {
+            newMatColor = Color.red;
+        }
+
+        _bodyRenderer.material.color = newMatColor;
     }
 }

@@ -22,4 +22,16 @@ public class PresidentController : MonoBehaviour {
 	public void DecreaseStamina () {
 		stamina = stamina - 10;
 	}
+
+    public void ActivateConeForHandwave()
+    {
+        GameObject go1 = GameObject.FindGameObjectWithTag("Cone");
+        go1.GetComponent<Collider>().enabled = true;
+    }
+
+    public void DeactivateConeForHandwave()
+    {
+        GameObject go1 = GameObject.FindGameObjectWithTag("Cone");
+        go1.GetComponent<Collider>().enabled = false;
+    }
 }
