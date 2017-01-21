@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PresidentController : MonoBehaviour {
+	public int staminaIncreaseRate = 5;
+	public int staminaDecreaseRate = 10;
 	Animator handwave;
+	public int staminaMax = 100;
+	public int staminaMin = 0;
 	public int stamina = 100;
+	public float staminaFillInterval = 5;
+	public float idleTime = 0;
 	// Use this for initialization
 	void Start () {
 		handwave = GetComponent<Animator>();
@@ -17,9 +23,27 @@ public class PresidentController : MonoBehaviour {
 		} else {
 			handwave.SetBool("IsWaving", false);
 		}
+
+		if (handwave.GetBool("IsWaving")) {
+			idleTime = 0;
+		} else {
+			idleTime = idleTime + Time.deltaTime;
+
+			if (idleTime > staminaFillInterval) {
+				idleTime = 0;
+				IncreaseStamina();
+			}
+		}
 	}
 
+	private void SetStamina (int nextStamina) {
+		stamina = Mathf.Clamp(nextStamina, staminaMin, staminaMax);
+	}
+	
+	public void IncreaseStamina () {
+		SetStamina(stamina + staminaIncreaseRate);
+	}
 	public void DecreaseStamina () {
-		stamina = stamina - 10;
+		SetStamina(stamina - staminaDecreaseRate);
 	}
 }
