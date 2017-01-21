@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public int PedestrianSpawnCount;
-    public GameObject PedestrianPrefab;
+    public GameObject[] PedestrianPrefabs;
     
 	void Start ()
     {
@@ -19,8 +19,18 @@ public class SpawnManager : MonoBehaviour
 	    {
             Vector3 newSpawnPos = transform.TransformPoint(new Vector3(Random.Range(-randomXLim, randomXLim), 0,
                 Random.Range(-randomZLim, randomZLim)));
-            
-	        Instantiate(PedestrianPrefab, newSpawnPos, Quaternion.AngleAxis(Random.Range(0.0f, 360.0f), Vector3.up));
+
+	        int randomPedestrianIndex = Random.Range(1, 10);
+	        int arrayIndex = 2;
+	        if (randomPedestrianIndex < 5)
+	        {
+	            arrayIndex = 1;
+	        }
+            else if (randomPedestrianIndex < 9)
+            {
+                arrayIndex = 0;
+            }
+	        Instantiate(PedestrianPrefabs[arrayIndex], newSpawnPos, Quaternion.AngleAxis(Random.Range(0.0f, 360.0f), Vector3.up));
         }
     }
 }

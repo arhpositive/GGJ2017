@@ -58,7 +58,7 @@ ModelImporter:
     4300012: Pedestrian_Head
     4300014: Pedestrian_Body
     4300016: PedestrianHair
-    7400000: GGJ2017
+    7400000: PedestrianAnim
     9500000: //RootNode
   materials:
     importMaterials: 0
@@ -82,7 +82,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: GGJ2017
+      name: PedestrianAnim
       takeName: GGJ2017
       firstFrame: 0
       lastFrame: 46
