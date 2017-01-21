@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
         transform.localScale = Vector3.one; //you dirty bastard
         for (int i = 0; i < PedestrianSpawnCount; ++i)
 	    {
-            Vector3 newSpawnPos = transform.TransformPoint(new Vector3(Random.Range(-randomXLim, randomXLim), 0,
+            Vector3 newSpawnPos = transform.TransformPoint(new Vector3(Random.Range(-randomXLim, randomXLim), -1f,
                 Random.Range(-randomZLim, randomZLim)));
 
 	        int randomPedestrianIndex = Random.Range(1, 10);
