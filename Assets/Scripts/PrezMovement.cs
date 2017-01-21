@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PrezMovement : MonoBehaviour {
 	private Rigidbody rb;
+	public GameObject ground;
 	public int speed = 10;
-	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate () {
-		GameObject ground = GameObject.FindWithTag("Ground");
 		Vector3 boundaries = ground.transform.localScale;
 		
 		float minX = -boundaries.x / 2 + transform.localScale.x / 2;
@@ -24,9 +22,9 @@ public class PrezMovement : MonoBehaviour {
 
 		transform.Translate(movement * speed * Time.fixedDeltaTime);
 
-		float xClamped = Mathf.Clamp(transform.position.x, minX, maxX);
-		float zClamped = Mathf.Clamp(transform.position.z, minZ, maxZ);
+		float xClamped = Mathf.Clamp(transform.localPosition.x, minX, maxX);
+		float zClamped = Mathf.Clamp(transform.localPosition.z, minZ, maxZ);
 
-		transform.position = new Vector3(xClamped, transform.position.y, zClamped);
+		transform.localPosition = new Vector3(xClamped, transform.localPosition.y, zClamped);
 	}
 }
