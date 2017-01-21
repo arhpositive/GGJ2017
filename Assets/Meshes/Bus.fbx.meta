@@ -21,6 +21,11 @@ ModelImporter:
     100026: pPipe3
     100028: pPipe4
     100030: Windows
+    100032: BusBody
+    100034: Wheel1
+    100036: Wheel2
+    100038: Wheel3
+    100040: Wheel4
     400000: //RootNode
     400002: polySurface10
     400004: polySurface11
@@ -37,6 +42,11 @@ ModelImporter:
     400026: pPipe3
     400028: pPipe4
     400030: Windows
+    400032: BusBody
+    400034: Wheel1
+    400036: Wheel2
+    400038: Wheel3
+    400040: Wheel4
     2300000: polySurface10
     2300002: polySurface11
     2300004: polySurface2
@@ -51,6 +61,11 @@ ModelImporter:
     2300022: pPipe2
     2300024: pPipe3
     2300026: pPipe4
+    2300028: BusBody
+    2300030: Wheel1
+    2300032: Wheel2
+    2300034: Wheel3
+    2300036: Wheel4
     3300000: polySurface10
     3300002: polySurface11
     3300004: polySurface2
@@ -65,6 +80,11 @@ ModelImporter:
     3300022: pPipe2
     3300024: pPipe3
     3300026: pPipe4
+    3300028: BusBody
+    3300030: Wheel1
+    3300032: Wheel2
+    3300034: Wheel3
+    3300036: Wheel4
     4300000: polySurface10
     4300002: polySurface2
     4300004: polySurface3
@@ -79,9 +99,14 @@ ModelImporter:
     4300022: pPipe2
     4300024: pPipe3
     4300026: pPipe4
+    4300028: BusBody
+    4300030: Wheel1
+    4300032: Wheel2
+    4300034: Wheel3
+    4300036: Wheel4
     9500000: //RootNode
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
