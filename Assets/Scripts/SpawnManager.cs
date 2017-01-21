@@ -13,16 +13,13 @@ public class SpawnManager : MonoBehaviour
 
 	    float randomXLim = transform.localScale.x*0.5f;
 	    float randomZLim = transform.localScale.z*0.5f;
-        print(randomXLim);
-        print(randomZLim);
 
         transform.localScale = Vector3.one; //you dirty bastard
         for (int i = 0; i < PedestrianSpawnCount; ++i)
 	    {
             Vector3 newSpawnPos = transform.TransformPoint(new Vector3(Random.Range(-randomXLim, randomXLim), 0,
                 Random.Range(-randomZLim, randomZLim)));
-
-            print(newSpawnPos);
+            
 	        Instantiate(PedestrianPrefab, newSpawnPos, Quaternion.AngleAxis(Random.Range(0.0f, 360.0f), Vector3.up));
         }
     }
