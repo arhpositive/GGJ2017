@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PresidentWaveSmb : StateMachineBehaviour {
-
+	GameObject president;
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
+		president = GameObject.FindWithTag("Player");
+		PresidentController script = president.GetComponent<PresidentController>();
+		script.DecreaseStamina();
 	    //TODO basgan ates ediyor
         //this might be tricky, send an event to presidentController or ConeController to fire up a wave
         //wave properties are a bit unique, but it's a line collider after all
