@@ -9,7 +9,7 @@ public class PresidentController : MonoBehaviour {
 	public int staminaMax = 100;
 	public int staminaMin = 0;
 	public int stamina = 100;
-	public float staminaFillInterval = 5;
+	public float staminaFillInterval = 1;
 	public float idleTime = 0;
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,12 @@ public class PresidentController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButton(0)) {
-			handwave.SetBool("IsWaving", true);
+			if (stamina >= staminaDecreaseRate) {
+				handwave.SetBool("IsWaving", true);
+			}
+			else {
+				handwave.SetBool("IsWaving", false);
+			}
 		} else {
 			handwave.SetBool("IsWaving", false);
 		}
@@ -43,6 +48,7 @@ public class PresidentController : MonoBehaviour {
 	public void IncreaseStamina () {
 		SetStamina(stamina + staminaIncreaseRate);
 	}
+	
 	public void DecreaseStamina () {
 		SetStamina(stamina - staminaDecreaseRate);
 	}
