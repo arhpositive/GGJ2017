@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ConeController : MonoBehaviour {
-	Vector3 distanceToPlayer;
-	GameObject prez;
 	Plane hPlane;
 
 	// Use this for initialization
 	void Start () {
-		prez = GameObject.FindWithTag("Player");
-		distanceToPlayer = transform.position - prez.transform.position;
 		hPlane = new Plane(Vector3.up, transform.position);
 
 	}
