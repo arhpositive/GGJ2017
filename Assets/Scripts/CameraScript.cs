@@ -12,6 +12,13 @@ public class CameraScript : MonoBehaviour {
 	public Text successMessage;
 	public Text failureMessage;
 
+    public GameObject StartGameObject;
+
+    void Awake()
+    {
+        Time.timeScale = 0.0f;
+    }
+
 	// Use this for initialization
 	void Start () {
 		
@@ -44,6 +51,17 @@ public class CameraScript : MonoBehaviour {
 	public void AddPedestrians (int count) {
 		totalPedestrians += count;
 	}
+
+    public void ReturnToStartScreen()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void BeginGame()
+    {
+       Time.timeScale = 1.0f;
+       StartGameObject.SetActive(false);
+    }
 
     public void RestartMission()
     {
