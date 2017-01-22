@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 73c7a15d313c94d8bb61e9fb8cb6d9f9
+timeCreated: 1485038751
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Gobold
+  fontNames:
+  - Gobold
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
