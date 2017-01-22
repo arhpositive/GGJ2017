@@ -273,7 +273,20 @@ public class Pedestrian : MonoBehaviour
     void SetBodyColor()
     {
         float remainingPercentage = _remainingSecondsToImpress / SecondsRequiredToImpress;
-        Color newMatColor = new Color(1 - remainingPercentage, 0, remainingPercentage);
+
+        Color newMatColor;
+
+        if (remainingPercentage > 0.5f)
+        {
+            //blue to white
+            newMatColor = new Color((1-remainingPercentage)*2, (1-remainingPercentage)*2, 1.0f);
+        }
+        else
+        {
+            //white to purple
+            newMatColor = new Color(1.0f, remainingPercentage * 2, 1.0f);
+
+        }
 
         if (remainingPercentage <= 0.0f)
         {
