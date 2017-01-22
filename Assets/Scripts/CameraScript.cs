@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour {
@@ -25,7 +26,7 @@ public class CameraScript : MonoBehaviour {
 
 		// update endgame score
 		endGameScoreText.text = string.Format("{0:C2}", score);
-
+        
 		// set success/failure text on endgame depending on score
 		if (score > 50) {
 			successMessage.enabled = true;
@@ -43,4 +44,9 @@ public class CameraScript : MonoBehaviour {
 	public void AddPedestrians (int count) {
 		totalPedestrians += count;
 	}
+
+    public void RestartMission()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
