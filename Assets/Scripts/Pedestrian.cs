@@ -43,7 +43,7 @@ public class Pedestrian : MonoBehaviour
 
     private bool _isImpressed; //TODO_ARHAN goal of the game is to make as much pedestrians impressed as possible
 
-    private enum MoveState
+    public enum MoveState
     {
         MsIdle,
         MsWandering,
@@ -181,6 +181,16 @@ public class Pedestrian : MonoBehaviour
                 }
             }
         }
+    }
+
+    public bool getIsImpressed()
+    {
+        return _isImpressed;
+    }
+
+    public MoveState GetMoveState()
+    {
+        return _moveState;
     }
 
     void SetToIdle()
