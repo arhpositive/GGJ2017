@@ -11,6 +11,8 @@ public class CampaignBus : MonoBehaviour
 
     public float MovementSpeed;
     public float LookAheadAmount;
+
+    public Camera gameCam;
     
 	void Start ()
 	{
