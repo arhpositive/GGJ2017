@@ -42,6 +42,11 @@ public class CameraScript : MonoBehaviour {
 			successMessage.enabled = false;
 			failureMessage.enabled = true;
 		}
+
+		// listen to escape button press
+		if (Input.GetKey("escape")) {
+			ReturnToStartScreen();
+		}
 	}
 
 	public void IncreaseScore () {
@@ -67,4 +72,8 @@ public class CameraScript : MonoBehaviour {
     {
         SceneManager.LoadScene(0);
     }
+
+	public void ExitGame () {
+		Application.Quit();
+	}
 }
