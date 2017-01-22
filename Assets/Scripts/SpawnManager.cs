@@ -16,10 +16,6 @@ public class SpawnManager : MonoBehaviour
 	void Start ()
 	{
 	    _screamsPlayed = false;
-        // update pedestrian count
-        CameraScript cameraScript = Camera.main.GetComponent<CameraScript>();
-        cameraScript.AddPedestrians(PedestrianSpawnCount);
-
 	    _zoneAudioSource = gameObject.GetComponent<AudioSource>();
         
 		//attached gameobject will spawn new pedestrians within limits, where y = 0 and x,z is determined randomly
@@ -27,6 +23,13 @@ public class SpawnManager : MonoBehaviour
 	    float randomXLim = transform.localScale.x*0.5f;
 	    float randomZLim = transform.localScale.z*0.5f;
         _createdPedestrians = new List<Pedestrian>();
+
+#if UNITY_WEBGL
+	    PedestrianSpawnCount /= 3;
+#endif
+        // update pedestrian count
+        CameraScript cameraScript = Camera.main.GetComponent<CameraScript>();
+        cameraScript.AddPedestrians(PedestrianSpawnCount);
 
         transform.localScale = Vector3.one; //you dirty bastard
         for (int i = 0; i < PedestrianSpawnCount; ++i)
