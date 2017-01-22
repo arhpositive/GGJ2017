@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Net;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 public class CampaignBus : MonoBehaviour
@@ -12,7 +13,7 @@ public class CampaignBus : MonoBehaviour
     public float MovementSpeed;
     public float LookAheadAmount;
 
-    public Camera gameCam;
+    public GameObject EndGameScreen;
     
 	void Start ()
 	{
@@ -25,6 +26,16 @@ public class CampaignBus : MonoBehaviour
 	
 	void FixedUpdate ()
 	{
+	    if (_completedPathPercentage >= 1.0f)
+	    {
+	        //finish game
+            //
+	        Time.timeScale = 0.0f;
+
+            //open end game screen
+            EndGameScreen.SetActive(true);
+	        return;
+	    }
 	    _completedPathPercentage %= 1.0f;
 
 	    int potentialNextNodeIndex = FindNextNodeIndex();
