@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 946344894818b457097a36e56c580b28
-timeCreated: 1485067060
+timeCreated: 1485070726
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,20 +9,25 @@ ModelImporter:
     100002: Pedestrian_Body
     100004: Pedestrian_Head
     100006: //RootNode
+    100008: FemaleHair
     400000: GirlHair
     400002: Pedestrian_Body
     400004: Pedestrian_Head
     400006: //RootNode
+    400008: FemaleHair
     2300000: GirlHair
     2300002: Pedestrian_Body
     2300004: Pedestrian_Head
+    2300006: FemaleHair
     3300000: GirlHair
     3300002: Pedestrian_Body
     3300004: Pedestrian_Head
+    3300006: FemaleHair
     4300000: Pedestrian_Head
     4300002: Pedestrian_Body
     4300004: GirlHair
-    7400000: GGJ2017
+    4300006: FemaleHair
+    7400000: FemaleAnim
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -44,11 +49,47 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: FemaleAnim
+      takeName: GGJ2017
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: GirlHair
+        weight: 1
+      - path: Pedestrian_Body
+        weight: 1
+      - path: Pedestrian_Head
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 50
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

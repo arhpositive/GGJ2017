@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3b0360af2d17e453d9b3e5073d6a547b
-timeCreated: 1485067060
+timeCreated: 1485070725
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,20 +9,25 @@ ModelImporter:
     100002: Pedestrian_Head
     100004: //RootNode
     100006: PedestrianHair
+    100008: ChildHair
     400000: Pedestrian_Body
     400002: Pedestrian_Head
     400004: //RootNode
     400006: PedestrianHair
+    400008: ChildHair
     2300000: Pedestrian_Body
     2300002: Pedestrian_Head
     2300004: PedestrianHair
+    2300006: ChildHair
     3300000: Pedestrian_Body
     3300002: Pedestrian_Head
     3300004: PedestrianHair
+    3300006: ChildHair
     4300000: Pedestrian_Head
     4300002: Pedestrian_Body
     4300004: PedestrianHair
-    7400000: GGJ2017
+    4300006: ChildHair
+    7400000: ChildAnim
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -44,11 +49,47 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: ChildAnim
+      takeName: GGJ2017
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Pedestrian_Body
+        weight: 1
+      - path: Pedestrian_Head
+        weight: 1
+      - path: PedestrianHair
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 50
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
