@@ -7,51 +7,66 @@ public class SpawnManager : MonoBehaviour
 {
     public int PedestrianSpawnCount;
     public GameObject[] PedestrianPrefabs;
+    public GameObject BusMoverGameObject;
 
     private List<Pedestrian> _createdPedestrians;
     private AudioSource _zoneAudioSource;
     private bool _screamsPlayed;
+    private Vector3 _spawnZoneScale;
+    private CameraScript _cameraScript;
+    private Vector3[] _busPath;
+    
 
     
 	void Start ()
 	{
 	    _screamsPlayed = false;
 	    _zoneAudioSource = gameObject.GetComponent<AudioSource>();
-        
-		//attached gameobject will spawn new pedestrians within limits, where y = 0 and x,z is determined randomly
+        _cameraScript = Camera.main.GetComponent<CameraScript>();
 
-	    float randomXLim = transform.localScale.x*0.5f;
-	    float randomZLim = transform.localScale.z*0.5f;
+        //attached gameobject will spawn new pedestrians within limits, where y = 0 and x,z is determined randomly
+        _spawnZoneScale = transform.localScale;
+        transform.localScale = Vector3.one; //you dirty bastard
+        
         _createdPedestrians = new List<Pedestrian>();
 
-#if UNITY_WEBGL
-	    PedestrianSpawnCount /= 3;
-#endif
-        // update pedestrian count
-        CameraScript cameraScript = Camera.main.GetComponent<CameraScript>();
-        cameraScript.AddPedestrians(PedestrianSpawnCount);
-
-        transform.localScale = Vector3.one; //you dirty bastard
-        for (int i = 0; i < PedestrianSpawnCount; ++i)
+	    if (BusMoverGameObject == null)
 	    {
+            BusMoverGameObject = GameObject.FindGameObjectWithTag("BusMover");
+        }
+	    _busPath = BusMoverGameObject.GetComponentInParent<iTweenPath>().nodes.ToArray();
+
+#if UNITY_WEBGL
+	    PedestrianSpawnCount = Mathf.FloorToInt(PedestrianSpawnCount * 0.4f);
+#endif
+
+	    for (int i = 0; i < PedestrianSpawnCount; ++i)
+	    {
+            float randomXLim = _spawnZoneScale.x * 0.5f;
+            float randomZLim = _spawnZoneScale.z * 0.5f;
+
             Vector3 newSpawnPos = transform.TransformPoint(new Vector3(Random.Range(-randomXLim, randomXLim), -1f,
                 Random.Range(-randomZLim, randomZLim)));
 
-	        int randomPedestrianIndex = Random.Range(1, 10);
-	        int arrayIndex = 2;
-	        if (randomPedestrianIndex < 5)
-	        {
-	            arrayIndex = 1;
-	        }
+            int randomPedestrianIndex = Random.Range(1, 10);
+            int arrayIndex = 2;
+            if (randomPedestrianIndex < 5)
+            {
+                arrayIndex = 1;
+            }
             else if (randomPedestrianIndex < 9)
             {
                 arrayIndex = 0;
             }
-	        GameObject temp_go = Instantiate(PedestrianPrefabs[arrayIndex], newSpawnPos,
-	            Quaternion.AngleAxis(Random.Range(0.0f, 360.0f), Vector3.up));
-            
-	        _createdPedestrians.Add(temp_go.GetComponent<Pedestrian>());
-	    }
+
+            GameObject tempPedestrianGameObject = Instantiate(PedestrianPrefabs[arrayIndex], newSpawnPos,
+                Quaternion.AngleAxis(Random.Range(0.0f, 360.0f), Vector3.up));
+            Pedestrian tempPedestrian = tempPedestrianGameObject.GetComponent<Pedestrian>();
+            tempPedestrian.Initialize(_busPath, BusMoverGameObject);
+
+            _createdPedestrians.Add(tempPedestrian);
+        }
+        _cameraScript.AddPedestrians(PedestrianSpawnCount);
     }
 
     void Update()
@@ -61,7 +76,7 @@ public class SpawnManager : MonoBehaviour
             int count = 0;
             foreach (Pedestrian p in _createdPedestrians)
             {
-                if (p.GetMoveState() == Pedestrian.MoveState.MsLoveRun || p.getIsImpressed())
+                if (p.GetMoveState() == Pedestrian.MoveState.MsLoveRun || p.GetIsImpressed())
                 {
                     ++count;
                 }

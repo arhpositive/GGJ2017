@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PresidentWaveSmb : StateMachineBehaviour {
     private PresidentController _presidentControllerScript;
-    private ConeController _coneControllerScript;
     
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
-        _presidentControllerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PresidentController>();
+	    if (_presidentControllerScript == null)
+	    {
+            _presidentControllerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PresidentController>();
+        }
         _presidentControllerScript.DecreaseStamina();
-        
         _presidentControllerScript.ActivateConeForHandwave();
 	}
 
