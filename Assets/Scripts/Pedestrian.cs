@@ -38,7 +38,6 @@ public class Pedestrian : MonoBehaviour
     private float _prevDistanceFromTargetPoint;
     private float _remainingSecondsToImpress;
     private Renderer _bodyRenderer;
-
     private GameObject _busMoverGameObject;
 
     private bool _isImpressed; //TODO_ARHAN goal of the game is to make as much pedestrians impressed as possible
@@ -57,7 +56,7 @@ public class Pedestrian : MonoBehaviour
     {
         _moveState = MoveState.MsIdle;
 	    _actualSpeed = RegularSpeed;
-        _nextWanderTime = Time.time;
+        _nextWanderTime = Time.time + Random.Range(MinIdleDuration, MaxIdleDuration);
         _nextWanderPos = Vector3.zero;
 	    _posBeforeLoveRun = Vector3.zero;
         _wanderDirection = Vector3.zero;
@@ -70,6 +69,7 @@ public class Pedestrian : MonoBehaviour
             if (childRenderer.gameObject.tag == "body")
             {
                 _bodyRenderer = childRenderer;
+                break;
             }
         }
 
@@ -77,7 +77,6 @@ public class Pedestrian : MonoBehaviour
         _lovesPresident = (Random.Range(0.0f, 1.0f) < LovePresidentPossibility);
         _loveRunTriggered = false;
 
-        _busMoverGameObject = GameObject.FindGameObjectWithTag("BusMover");
 	    _prevDistanceFromTargetPoint = float.MaxValue;
         
 	    _remainingSecondsToImpress = SecondsRequiredToImpress;
@@ -86,12 +85,14 @@ public class Pedestrian : MonoBehaviour
 	        _remainingSecondsToImpress *= .5f;
             SetBodyColor();
 	    }
+    }
 
+    public void Initialize(Vector3[] busPath, GameObject busMoverGameObject)
+    {
         //determine target point on spline, first get bus path, then you'll do stuff
-        _busPathScript = GameObject.FindGameObjectWithTag("BusPath").GetComponent<iTweenPath>();
-        _busPath = _busPathScript.nodes.ToArray();
+        _busPath = busPath;
+        _busMoverGameObject = busMoverGameObject;
         SetTargetPointOnSpline();
-        //print("target: " + _targetPointOnSpline);
     }
 	
 	// Update is called once per frame
@@ -146,21 +147,23 @@ public class Pedestrian : MonoBehaviour
         }
         else if (_moveState == MoveState.MsWandering)
         {
-            MoveToPositionOnUpdate();
-
-            if (transform.position == _nextWanderPos)
+            if (transform.position != _nextWanderPos)
+            {
+                MoveToPositionOnUpdate();
+            }
+            else
             {
                 SetToIdle();
             }                
         }
         else if (_moveState == MoveState.MsLoveRun)
         {
-            MoveToPositionOnUpdate();
-
-            if (transform.position == _nextWanderPos)
+            if (transform.position != _nextWanderPos)
             {
-                //TODO watch the bus until it goes away
-
+                MoveToPositionOnUpdate();
+            }
+            else
+            {
                 if (!busIsApproaching)
                 {
                     //bus is going away, now check if it's beyond a certain range
@@ -183,7 +186,7 @@ public class Pedestrian : MonoBehaviour
         }
     }
 
-    public bool getIsImpressed()
+    public bool GetIsImpressed()
     {
         return _isImpressed;
     }
@@ -207,10 +210,13 @@ public class Pedestrian : MonoBehaviour
         //lerp until you reach a certain point
         float step = _actualSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, _nextWanderPos, step);
-
-        float rotateStep = RotationSpeed * Time.deltaTime;
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, _wanderDirection, rotateStep, 0.0f);
-        transform.rotation = Quaternion.LookRotation(newDir);
+        
+        if (transform.forward != _wanderDirection)
+        {
+            float rotateStep = RotationSpeed * Time.deltaTime;
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, _wanderDirection, rotateStep, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDir);
+        }
     }
 
     void SetTargetPointOnSpline()

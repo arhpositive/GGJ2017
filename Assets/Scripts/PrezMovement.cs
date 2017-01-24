@@ -10,7 +10,7 @@ public class PrezMovement : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 	}
 	
-	void FixedUpdate () {
+	void Update () {
 		Vector3 boundaries = ground.transform.localScale;
 		
 		float minX = -boundaries.x / 2 + transform.localScale.x / 2;
@@ -20,7 +20,7 @@ public class PrezMovement : MonoBehaviour {
 
 		Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
 
-		transform.Translate(movement * speed * Time.fixedDeltaTime);
+		transform.Translate(movement * speed * Time.deltaTime);
 
 		float xClamped = Mathf.Clamp(transform.localPosition.x, minX, maxX);
 		float zClamped = Mathf.Clamp(transform.localPosition.z, minZ, maxZ);

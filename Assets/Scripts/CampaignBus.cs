@@ -17,14 +17,14 @@ public class CampaignBus : MonoBehaviour
     
 	void Start ()
 	{
-        _busPathScript = GameObject.FindGameObjectWithTag("BusPath").GetComponent<iTweenPath>();
+	    _busPathScript = GetComponentInParent<iTweenPath>();
         _pathNodesArray = _busPathScript.nodes.ToArray();
 	    _completedPathPercentage = 0.0f;
 	    _movementSpeedForCurrentNode = 0.0f;
 	    _nextNodeIndex = 0;
 	}
 	
-	void FixedUpdate ()
+	void Update ()
 	{
 	    if (_completedPathPercentage >= 1.0f)
 	    {
@@ -46,7 +46,7 @@ public class CampaignBus : MonoBehaviour
             Vector3[] subPath = { _pathNodesArray[_nextNodeIndex - 1], _pathNodesArray[_nextNodeIndex] };
 	        _movementSpeedForCurrentNode = MovementSpeed/iTween.PathLength(subPath);
         }
-	    _completedPathPercentage += _movementSpeedForCurrentNode*Time.fixedDeltaTime;
+	    _completedPathPercentage += _movementSpeedForCurrentNode*Time.deltaTime;
 
         //Vector3 prevPos = transform.position;
 

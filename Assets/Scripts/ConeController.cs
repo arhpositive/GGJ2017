@@ -12,7 +12,7 @@ public class ConeController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		// Plane.Raycast stores the distance from ray.origin to the hit point in this variable:
 		float distance = 0; 

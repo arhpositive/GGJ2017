@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CameraScript : MonoBehaviour {
+public class CameraScript : MonoBehaviour
+{
+    public GameObject ExitButtonGameObject;
 	public float impressedPedestrians = 0;
 	public float totalPedestrians = 0;
 	public Text scoreText;
@@ -21,30 +23,38 @@ public class CameraScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+#if UNITY_WEBGL
+        ExitButtonGameObject.SetActive(false);
+#endif
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		decimal score = (decimal) (impressedPedestrians / totalPedestrians * 100);
+	    if (totalPedestrians > 0)
+	    {
+            decimal score = (decimal)(impressedPedestrians / totalPedestrians * 100);
 
-		// update onscreen score
-		scoreText.text = string.Format("Score: {0:C2}%", score);
+            // update onscreen score
+            scoreText.text = string.Format("Score: {0:C2}%", score);
 
-		// update endgame score
-		endGameScoreText.text = string.Format("{0:C2}", score);
-        
-		// set success/failure text on endgame depending on score
-		if (score > 50) {
-			successMessage.enabled = true;
-			failureMessage.enabled = false;
-		} else {
-			successMessage.enabled = false;
-			failureMessage.enabled = true;
-		}
+            // update endgame score
+            endGameScoreText.text = string.Format("{0:C2}", score);
+
+            // set success/failure text on endgame depending on score
+            if (score > 50)
+            {
+                successMessage.enabled = true;
+                failureMessage.enabled = false;
+            }
+            else {
+                successMessage.enabled = false;
+                failureMessage.enabled = true;
+            }
+        }
+		
 
 		// listen to escape button press
-		if (Input.GetKey("escape")) {
+		if (Input.GetKeyDown("escape")) {
 			ReturnToStartScreen();
 		}
 	}
