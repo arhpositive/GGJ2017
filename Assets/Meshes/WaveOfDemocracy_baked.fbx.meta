@@ -1,0 +1,630 @@
+fileFormatVersion: 2
+guid: f30d70bfa06b1475ea8c661b61d880e4
+timeCreated: 1485501156
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: big_building
+    100002: big_building1
+    100004: big_building10
+    100006: big_building11
+    100008: big_building2
+    100010: big_building3
+    100012: big_building4
+    100014: big_building5
+    100016: big_building6
+    100018: big_building7
+    100020: big_building9
+    100022: big_buildings
+    100024: Ground
+    100026: Lamp1
+    100028: Lamp10
+    100030: Lamp11
+    100032: Lamp12
+    100034: Lamp13
+    100036: Lamp14
+    100038: Lamp15
+    100040: Lamp16
+    100042: Lamp17
+    100044: Lamp18
+    100046: Lamp19
+    100048: Lamp2
+    100050: Lamp20
+    100052: Lamp21
+    100054: Lamp22
+    100056: Lamp23
+    100058: Lamp24
+    100060: Lamp25
+    100062: Lamp26
+    100064: Lamp3
+    100066: Lamp4
+    100068: Lamp5
+    100070: Lamp6
+    100072: Lamp7
+    100074: Lamp8
+    100076: Lamp9
+    100078: Road1
+    100080: Road10
+    100082: Road11
+    100084: Road12
+    100086: Road13
+    100088: Road14
+    100090: Road1_1
+    100092: Road1_1 1
+    100094: Road1_1 2
+    100096: Road1_1 3
+    100098: Road1_1 4
+    100100: Road1_1 5
+    100102: Road1_2
+    100104: Road1_2 1
+    100106: Road1_2 2
+    100108: Road1_2 3
+    100110: Road1_2 4
+    100112: Road1_2 5
+    100114: Road1_3
+    100116: Road1_3 1
+    100118: Road1_3 2
+    100120: Road1_3 3
+    100122: Road1_3 4
+    100124: Road1_3 5
+    100126: Road2
+    100128: Road2_1
+    100130: Road2_1 1
+    100132: Road2_1 2
+    100134: Road2_1 3
+    100136: Road2_1 4
+    100138: Road2_1 5
+    100140: Road2_1 6
+    100142: Road2_1 7
+    100144: Road2_2
+    100146: Road2_2 1
+    100148: Road2_2 2
+    100150: Road2_2 3
+    100152: Road2_2 4
+    100154: Road2_2 5
+    100156: Road2_2 6
+    100158: Road2_2 7
+    100160: Road2_3
+    100162: Road2_3 1
+    100164: Road2_3 2
+    100166: Road2_3 3
+    100168: Road2_3 4
+    100170: Road2_3 5
+    100172: Road2_3 6
+    100174: Road2_3 7
+    100176: Road3
+    100178: Road4
+    100180: Road5
+    100182: Road6
+    100184: Road7
+    100186: Road8
+    100188: Road9
+    100190: Roof1
+    100192: Roof11
+    100194: Roof12
+    100196: Roof13
+    100198: Roof2
+    100200: Roof3
+    100202: Roof4
+    100204: Roof5
+    100206: Roof6
+    100208: Roof7
+    100210: Roof8
+    100212: Roof9
+    100214: roofs
+    100216: sm_building
+    100218: sm_building1
+    100220: sm_building10
+    100222: sm_building2
+    100224: sm_building3
+    100226: sm_building4
+    100228: sm_building5
+    100230: sm_building6
+    100232: sm_building7
+    100234: sm_building8
+    100236: sm_building9
+    100238: sm_buildings
+    100240: street_lamps
+    100242: track
+    100244: //RootNode
+    400000: big_building
+    400002: big_building1
+    400004: big_building10
+    400006: big_building11
+    400008: big_building2
+    400010: big_building3
+    400012: big_building4
+    400014: big_building5
+    400016: big_building6
+    400018: big_building7
+    400020: big_building9
+    400022: big_buildings
+    400024: Ground
+    400026: Lamp1
+    400028: Lamp10
+    400030: Lamp11
+    400032: Lamp12
+    400034: Lamp13
+    400036: Lamp14
+    400038: Lamp15
+    400040: Lamp16
+    400042: Lamp17
+    400044: Lamp18
+    400046: Lamp19
+    400048: Lamp2
+    400050: Lamp20
+    400052: Lamp21
+    400054: Lamp22
+    400056: Lamp23
+    400058: Lamp24
+    400060: Lamp25
+    400062: Lamp26
+    400064: Lamp3
+    400066: Lamp4
+    400068: Lamp5
+    400070: Lamp6
+    400072: Lamp7
+    400074: Lamp8
+    400076: Lamp9
+    400078: Road1
+    400080: Road10
+    400082: Road11
+    400084: Road12
+    400086: Road13
+    400088: Road14
+    400090: Road1_1
+    400092: Road1_1 1
+    400094: Road1_1 2
+    400096: Road1_1 3
+    400098: Road1_1 4
+    400100: Road1_1 5
+    400102: Road1_2
+    400104: Road1_2 1
+    400106: Road1_2 2
+    400108: Road1_2 3
+    400110: Road1_2 4
+    400112: Road1_2 5
+    400114: Road1_3
+    400116: Road1_3 1
+    400118: Road1_3 2
+    400120: Road1_3 3
+    400122: Road1_3 4
+    400124: Road1_3 5
+    400126: Road2
+    400128: Road2_1
+    400130: Road2_1 1
+    400132: Road2_1 2
+    400134: Road2_1 3
+    400136: Road2_1 4
+    400138: Road2_1 5
+    400140: Road2_1 6
+    400142: Road2_1 7
+    400144: Road2_2
+    400146: Road2_2 1
+    400148: Road2_2 2
+    400150: Road2_2 3
+    400152: Road2_2 4
+    400154: Road2_2 5
+    400156: Road2_2 6
+    400158: Road2_2 7
+    400160: Road2_3
+    400162: Road2_3 1
+    400164: Road2_3 2
+    400166: Road2_3 3
+    400168: Road2_3 4
+    400170: Road2_3 5
+    400172: Road2_3 6
+    400174: Road2_3 7
+    400176: Road3
+    400178: Road4
+    400180: Road5
+    400182: Road6
+    400184: Road7
+    400186: Road8
+    400188: Road9
+    400190: Roof1
+    400192: Roof11
+    400194: Roof12
+    400196: Roof13
+    400198: Roof2
+    400200: Roof3
+    400202: Roof4
+    400204: Roof5
+    400206: Roof6
+    400208: Roof7
+    400210: Roof8
+    400212: Roof9
+    400214: roofs
+    400216: sm_building
+    400218: sm_building1
+    400220: sm_building10
+    400222: sm_building2
+    400224: sm_building3
+    400226: sm_building4
+    400228: sm_building5
+    400230: sm_building6
+    400232: sm_building7
+    400234: sm_building8
+    400236: sm_building9
+    400238: sm_buildings
+    400240: street_lamps
+    400242: track
+    400244: //RootNode
+    2300000: big_building
+    2300002: big_building1
+    2300004: big_building10
+    2300006: big_building11
+    2300008: big_building2
+    2300010: big_building3
+    2300012: big_building4
+    2300014: big_building5
+    2300016: big_building6
+    2300018: big_building7
+    2300020: big_building9
+    2300022: Ground
+    2300024: Lamp1
+    2300026: Lamp10
+    2300028: Lamp11
+    2300030: Lamp12
+    2300032: Lamp13
+    2300034: Lamp14
+    2300036: Lamp15
+    2300038: Lamp16
+    2300040: Lamp17
+    2300042: Lamp18
+    2300044: Lamp19
+    2300046: Lamp2
+    2300048: Lamp20
+    2300050: Lamp21
+    2300052: Lamp22
+    2300054: Lamp23
+    2300056: Lamp24
+    2300058: Lamp25
+    2300060: Lamp26
+    2300062: Lamp3
+    2300064: Lamp4
+    2300066: Lamp5
+    2300068: Lamp6
+    2300070: Lamp7
+    2300072: Lamp8
+    2300074: Lamp9
+    2300076: Road1_1
+    2300078: Road1_1 1
+    2300080: Road1_1 2
+    2300082: Road1_1 3
+    2300084: Road1_1 4
+    2300086: Road1_1 5
+    2300088: Road1_2
+    2300090: Road1_2 1
+    2300092: Road1_2 2
+    2300094: Road1_2 3
+    2300096: Road1_2 4
+    2300098: Road1_2 5
+    2300100: Road1_3
+    2300102: Road1_3 1
+    2300104: Road1_3 2
+    2300106: Road1_3 3
+    2300108: Road1_3 4
+    2300110: Road1_3 5
+    2300112: Road2_1
+    2300114: Road2_1 1
+    2300116: Road2_1 2
+    2300118: Road2_1 3
+    2300120: Road2_1 4
+    2300122: Road2_1 5
+    2300124: Road2_1 6
+    2300126: Road2_1 7
+    2300128: Road2_2
+    2300130: Road2_2 1
+    2300132: Road2_2 2
+    2300134: Road2_2 3
+    2300136: Road2_2 4
+    2300138: Road2_2 5
+    2300140: Road2_2 6
+    2300142: Road2_2 7
+    2300144: Road2_3
+    2300146: Road2_3 1
+    2300148: Road2_3 2
+    2300150: Road2_3 3
+    2300152: Road2_3 4
+    2300154: Road2_3 5
+    2300156: Road2_3 6
+    2300158: Road2_3 7
+    2300160: Roof1
+    2300162: Roof11
+    2300164: Roof12
+    2300166: Roof13
+    2300168: Roof2
+    2300170: Roof3
+    2300172: Roof4
+    2300174: Roof5
+    2300176: Roof6
+    2300178: Roof7
+    2300180: Roof8
+    2300182: Roof9
+    2300184: sm_building
+    2300186: sm_building1
+    2300188: sm_building10
+    2300190: sm_building2
+    2300192: sm_building3
+    2300194: sm_building4
+    2300196: sm_building5
+    2300198: sm_building6
+    2300200: sm_building7
+    2300202: sm_building8
+    2300204: sm_building9
+    3300000: big_building
+    3300002: big_building1
+    3300004: big_building10
+    3300006: big_building11
+    3300008: big_building2
+    3300010: big_building3
+    3300012: big_building4
+    3300014: big_building5
+    3300016: big_building6
+    3300018: big_building7
+    3300020: big_building9
+    3300022: Ground
+    3300024: Lamp1
+    3300026: Lamp10
+    3300028: Lamp11
+    3300030: Lamp12
+    3300032: Lamp13
+    3300034: Lamp14
+    3300036: Lamp15
+    3300038: Lamp16
+    3300040: Lamp17
+    3300042: Lamp18
+    3300044: Lamp19
+    3300046: Lamp2
+    3300048: Lamp20
+    3300050: Lamp21
+    3300052: Lamp22
+    3300054: Lamp23
+    3300056: Lamp24
+    3300058: Lamp25
+    3300060: Lamp26
+    3300062: Lamp3
+    3300064: Lamp4
+    3300066: Lamp5
+    3300068: Lamp6
+    3300070: Lamp7
+    3300072: Lamp8
+    3300074: Lamp9
+    3300076: Road1_1
+    3300078: Road1_1 1
+    3300080: Road1_1 2
+    3300082: Road1_1 3
+    3300084: Road1_1 4
+    3300086: Road1_1 5
+    3300088: Road1_2
+    3300090: Road1_2 1
+    3300092: Road1_2 2
+    3300094: Road1_2 3
+    3300096: Road1_2 4
+    3300098: Road1_2 5
+    3300100: Road1_3
+    3300102: Road1_3 1
+    3300104: Road1_3 2
+    3300106: Road1_3 3
+    3300108: Road1_3 4
+    3300110: Road1_3 5
+    3300112: Road2_1
+    3300114: Road2_1 1
+    3300116: Road2_1 2
+    3300118: Road2_1 3
+    3300120: Road2_1 4
+    3300122: Road2_1 5
+    3300124: Road2_1 6
+    3300126: Road2_1 7
+    3300128: Road2_2
+    3300130: Road2_2 1
+    3300132: Road2_2 2
+    3300134: Road2_2 3
+    3300136: Road2_2 4
+    3300138: Road2_2 5
+    3300140: Road2_2 6
+    3300142: Road2_2 7
+    3300144: Road2_3
+    3300146: Road2_3 1
+    3300148: Road2_3 2
+    3300150: Road2_3 3
+    3300152: Road2_3 4
+    3300154: Road2_3 5
+    3300156: Road2_3 6
+    3300158: Road2_3 7
+    3300160: Roof1
+    3300162: Roof11
+    3300164: Roof12
+    3300166: Roof13
+    3300168: Roof2
+    3300170: Roof3
+    3300172: Roof4
+    3300174: Roof5
+    3300176: Roof6
+    3300178: Roof7
+    3300180: Roof8
+    3300182: Roof9
+    3300184: sm_building
+    3300186: sm_building1
+    3300188: sm_building10
+    3300190: sm_building2
+    3300192: sm_building3
+    3300194: sm_building4
+    3300196: sm_building5
+    3300198: sm_building6
+    3300200: sm_building7
+    3300202: sm_building8
+    3300204: sm_building9
+    4300000: Road2_1
+    4300002: Road2_2
+    4300004: Road2_3
+    4300006: Road1_1
+    4300008: Road1_2
+    4300010: Road1_3
+    4300012: Road2_1
+    4300014: Road2_2
+    4300016: Road2_3
+    4300018: Road1_1
+    4300020: Road1_2
+    4300022: Road1_3
+    4300024: Road2_1
+    4300026: Road2_2
+    4300028: Road2_3
+    4300030: Road2_1
+    4300032: Road2_2
+    4300034: Road2_3
+    4300036: Road1_1
+    4300038: Road1_2
+    4300040: Road1_3
+    4300042: Road1_1
+    4300044: Road1_2
+    4300046: Road1_3
+    4300048: Road2_1
+    4300050: Road2_2
+    4300052: Road2_3
+    4300054: Road2_1
+    4300056: Road2_2
+    4300058: Road2_3
+    4300060: Road1_1
+    4300062: Road1_2
+    4300064: Road1_3
+    4300066: Road2_1
+    4300068: Road2_2
+    4300070: Road2_3
+    4300072: Road1_1
+    4300074: Road1_2
+    4300076: Road1_3
+    4300078: Road2_1
+    4300080: Road2_2
+    4300082: Road2_3
+    4300084: big_building
+    4300086: big_building1
+    4300088: big_building2
+    4300090: big_building3
+    4300092: big_building4
+    4300094: big_building5
+    4300096: big_building6
+    4300098: big_building7
+    4300100: big_building9
+    4300102: big_building10
+    4300104: big_building11
+    4300106: sm_building
+    4300108: sm_building1
+    4300110: sm_building2
+    4300112: sm_building3
+    4300114: sm_building4
+    4300116: sm_building5
+    4300118: sm_building6
+    4300120: sm_building7
+    4300122: sm_building8
+    4300124: sm_building9
+    4300126: sm_building10
+    4300128: Lamp1
+    4300130: Lamp2
+    4300132: Lamp3
+    4300134: Lamp4
+    4300136: Lamp5
+    4300138: Lamp6
+    4300140: Lamp7
+    4300142: Lamp8
+    4300144: Lamp9
+    4300146: Lamp10
+    4300148: Lamp11
+    4300150: Lamp12
+    4300152: Lamp13
+    4300154: Lamp14
+    4300156: Lamp15
+    4300158: Lamp16
+    4300160: Lamp17
+    4300162: Lamp18
+    4300164: Lamp19
+    4300166: Lamp20
+    4300168: Lamp21
+    4300170: Lamp22
+    4300172: Lamp23
+    4300174: Lamp24
+    4300176: Lamp25
+    4300178: Lamp26
+    4300180: Roof1
+    4300182: Roof2
+    4300184: Roof3
+    4300186: Roof4
+    4300188: Roof5
+    4300190: Roof6
+    4300192: Roof7
+    4300194: Roof8
+    4300196: Roof9
+    4300198: Roof11
+    4300200: Roof12
+    4300202: Roof13
+    4300204: Ground
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
